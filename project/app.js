@@ -1,5 +1,4 @@
 function add(n1, n2, showResult, phrase) {
-    //console.log(typeof number1);
     /*if (typeof n1 !== 'number' || typeof n2 !== 'number') {
       throw new Error('Incorrect input!');
     }*/
@@ -11,7 +10,8 @@ function add(n1, n2, showResult, phrase) {
         return result;
     }
 }
-var number1 = 5; // 5.0
+var number1;
+number1 = 5;
 var number2 = 2.8;
 var printResult = true;
 var resultPhrase = 'Result is: ';
