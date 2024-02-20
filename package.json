@@ -1,0 +1,14 @@
+{
+  "name": "udemy-typescript-lectures",
+  "version": "0.0.1",
+  "description": "Understanding TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew J. Baker <andrew_j_baker2@hotmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
