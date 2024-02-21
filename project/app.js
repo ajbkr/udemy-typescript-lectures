@@ -5,4 +5,11 @@ function printResult(num) {
     console.log('Result: ' + num);
 }
 printResult(add(5, 12));
+//let combineValues: Function;
+//let combineValues: ((a: number, b: number) => number) | ((a: number) => void);
+var combineValues;
+combineValues = add;
+//combineValues = printResult;
+//combineValues = 5;
+console.log(combineValues(8, 8));
 //let someValue: undefined;
