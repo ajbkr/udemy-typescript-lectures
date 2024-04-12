@@ -31,3 +31,22 @@ if (button) {
 // console.log(add(2, 5));
 // printOutput(add(5, 2));
 printOutput(add(5));
+
+const hobbies = ['Sport', 'Cooking'];
+// const activeHobbies = ['Hiking', ...hobbies];
+const activeHobbies = ['Hiking'];
+
+// activeHobbies.push(hobbies[0], hobbies[1]);
+activeHobbies.push(...hobbies);
+// console.log(activeHobbies);
+
+const person = {
+  name: 'Max',
+  age: 30
+}
+
+// const copiedPerson = person;
+const copiedPerson = { ...person };
+
+copiedPerson.name = 'Andrew';
+console.log(person.name);
