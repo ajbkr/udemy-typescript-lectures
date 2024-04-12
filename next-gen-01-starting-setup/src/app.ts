@@ -1,8 +1,8 @@
-const userName = 'Max';
+/* const userName = 'Max';
 // userName = 'Maximilian';  // error
 let age = 30;
 
-age = 29;
+age = 29; */
 
 /* function add (a: number, b: number) {
   let result;
@@ -41,15 +41,15 @@ activeHobbies.push(...hobbies);
 // console.log(activeHobbies);
 
 const person = {
-  name: 'Max',
+  firstName: 'Max',
   age: 30
 }
 
 // const copiedPerson = person;
 const copiedPerson = { ...person };
 
-copiedPerson.name = 'Andrew';
-console.log(person.name);
+copiedPerson.firstName = 'Andrew';
+console.log(person.firstName);
 
 // const add = (...numbers: [number, number, number, number]) =>
 const add = (...numbers: number[]) =>
@@ -60,3 +60,21 @@ const add = (...numbers: number[]) =>
 
 const addedNumbers = add(5, 10, 2, 3.7);
 console.log(addedNumbers);
+
+// const hobby1 = hobbies[0];
+// const hobby2 = hobbies[1];
+
+/*const [hobby1, hobby2] = hobbies;
+console.log(hobby1);
+console.log(hobby2);*/
+
+const [hobby1, hobby2, ...remainingHobbies] = activeHobbies;
+console.log(hobby1);
+console.log(hobby2);
+console.log(remainingHobbies);
+
+console.log(activeHobbies, hobby1, hobby2);
+
+const { firstName: userName, age } = person;
+// console.log(firstName);  // error
+console.log(userName, age, person);
