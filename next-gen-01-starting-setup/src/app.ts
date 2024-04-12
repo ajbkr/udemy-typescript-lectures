@@ -17,7 +17,7 @@ age = 29;
 
 console.log(isOld); */
 
-const add = (a: number, b: number = 1) => a + b;
+/* const add = (a: number, b: number = 1) => a + b;
 
 // const printOutput = (a: number | string) => console.log(a);
 const printOutput: (a: number | string) => void = output => console.log(output);
@@ -30,7 +30,7 @@ if (button) {
 
 // console.log(add(2, 5));
 // printOutput(add(5, 2));
-printOutput(add(5));
+printOutput(add(5)); */
 
 const hobbies = ['Sport', 'Cooking'];
 // const activeHobbies = ['Hiking', ...hobbies];
@@ -50,3 +50,13 @@ const copiedPerson = { ...person };
 
 copiedPerson.name = 'Andrew';
 console.log(person.name);
+
+// const add = (...numbers: [number, number, number, number]) =>
+const add = (...numbers: number[]) =>
+  numbers.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    0
+  );
+
+const addedNumbers = add(5, 10, 2, 3.7);
+console.log(addedNumbers);
