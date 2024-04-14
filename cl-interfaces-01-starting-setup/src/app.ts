@@ -1,12 +1,18 @@
+interface INamed {
+  readonly name: string;
+}
+
 // interface IPerson {
 // type Person = {
-interface IGreetable {
-  readonly name: string;
+interface IGreetable extends INamed {
+// interface IGreetable {
+  // readonly name: string;
   // age: number;
 
   greet(phrase: string): void;
 }
 
+// class Person implements IGreetable, INamed {
 class Person implements IGreetable {
   // name: string = '';
   age = 30;
