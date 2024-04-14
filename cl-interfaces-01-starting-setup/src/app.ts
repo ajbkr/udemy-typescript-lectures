@@ -1,7 +1,7 @@
 // interface IPerson {
 // type Person = {
 interface IGreetable {
-  name: string;
+  readonly name: string;
   // age: number;
 
   greet(phrase: string): void;
@@ -32,6 +32,7 @@ let user1: IGreetable;
 }; */
 
 user1 = new Person('Max');
+// user1.name = 'Manu';
 
 user1.greet('Hi there - I am');
 console.log(user1);
