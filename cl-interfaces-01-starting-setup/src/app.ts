@@ -10,7 +10,9 @@ add = (n1: number, n2: number) => {
 };
 
 interface INamed {
-  readonly name: string;
+  // readonly name: string;
+  readonly name?: string;
+  outputName?: string;
 }
 
 // interface IPerson {
@@ -26,12 +28,24 @@ interface IGreetable extends INamed {
 // class Person implements IGreetable, INamed {
 class Person implements IGreetable {
   // name: string = '';
+  // name?: string;
   age = 30;
 
-  constructor(public name: string = '') {}
+  // constructor(public name: string = 'Superman') {}
+  // constructor(name: string) {
+  constructor(public name?: string) {
+    /* if (name) {
+      this.name = name;
+    } */
+    this.name ??= name;
+  }
 
   greet(phrase: string) {
-    console.log(`${phrase} ${this.name}`);
+    if (this.name) {
+      console.log(`${phrase} ${this.name}`);
+    } else {
+      console.log('Hi!');
+    }
   }
 }
 
@@ -49,6 +63,7 @@ let user1: IGreetable;
 }; */
 
 user1 = new Person('Max');
+// user1 = new Person();
 // user1.name = 'Manu';
 
 user1.greet('Hi there - I am');
