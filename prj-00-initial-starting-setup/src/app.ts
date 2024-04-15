@@ -1,3 +1,42 @@
+// Validation
+interface IValidatable {
+  value: string | number;
+  // required: boolean | undefined;
+  required?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  min?: number;
+  max?: number;
+}
+
+function validate(validatableInput: IValidatable) {
+  let isValid = true;
+
+  if (validatableInput.required) {
+    isValid = isValid && validatableInput.value.toString().trim().length !== 0;
+  }
+  if (
+   validatableInput.minLength != null &&
+   validatableInput.minLength && typeof validatableInput.value === 'string'
+  ) {
+    isValid = isValid && validatableInput.value.trim().length >= validatableInput.minLength;
+  }
+  if (
+   validatableInput.maxLength != null &&
+   validatableInput.maxLength && typeof validatableInput.value === 'string'
+  ) {
+    isValid = isValid && validatableInput.value.trim().length <= validatableInput.maxLength;
+  }
+  if (validatableInput.min != null && typeof validatableInput.value === 'number') {
+    isValid = isValid && validatableInput.value >= validatableInput.min;
+  }
+  if (validatableInput.max != null && typeof validatableInput.value === 'number') {
+    isValid = isValid && validatableInput.value <= validatableInput.max;
+  }
+
+  return isValid;
+}
+
 // autobind decorator
 function autobind(_target: any, _methodName: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
@@ -58,8 +97,32 @@ class ProjectInput {
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
 
-    if (enteredTitle.trim().length === 0 || enteredDescription.trim().length == 0 ||
-     enteredPeople.trim().length === 0) {
+    const titleValidatable: IValidatable = {
+      value: enteredTitle,
+      required: true
+    };
+    const descriptionValidatable: IValidatable = {
+      value: enteredDescription,
+      required: true,
+      minLength: 5
+    };
+    const peopleValidatable: IValidatable = {
+      value: +enteredPeople,
+      required: true,
+      min: 1,
+      max: 5
+    };
+
+    // if (enteredTitle.trim().length === 0 || enteredDescription.trim().length == 0 ||
+    //  enteredPeople.trim().length === 0) {
+    if (
+      !(validate(titleValidatable) &&
+      validate(descriptionValidatable) &&
+      validate(peopleValidatable))
+      /* !validate(titleValidatable) ||
+      !validate(descriptionValidatable) ||
+      !validate(peopleValidatable) */
+    ) {
       window.alert('Invalid input, please try again!');
       return;
     } else {
